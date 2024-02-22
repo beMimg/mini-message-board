@@ -5,12 +5,12 @@ const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    added: new Date(),
+    added: new Date().getHours(),
   },
   {
     text: "Hello World!",
     user: "Charles",
-    added: new Date(),
+    added: new Date().getHours(),
   },
 ];
 
@@ -22,7 +22,11 @@ router.get("/", function (req, res, next) {
 router.post("/new", (req, res, next) => {
   const { username, message } = req.body;
 
-  messages.push({ text: message, user: username, added: new Date() });
+  messages.push({
+    text: message,
+    user: username,
+    added: new Date().getHours(),
+  });
 
   res.redirect("/");
 });

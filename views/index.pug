@@ -1,10 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  a(href="/new") Message Form
-  ul 
-    each message in messages 
-      li #{message.user}: #{message.text} '#{message.added}'
-
+  p(class="welcome-message") Welcome to #{title}
+  a(href="/new", class="message-link") Message Form
+  ul(class="items")
+    each message in messages
+      li(class="message-item") #{message.user}: #{message.text} '#{message.added}'
